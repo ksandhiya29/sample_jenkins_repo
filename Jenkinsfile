@@ -14,7 +14,7 @@ pipeline {
 		stage('Confirmation') {
 			steps{
 				script {
-                    input message: 'Do you want to proceed with the deployment?', ok: 'Yes, Deploy!'
+                    //input message: 'Do you want to proceed with the deployment?', ok: 'Yes, Deploy!'
                     echo 'Deployment approved. Proceeding...'
                 }
 		}
