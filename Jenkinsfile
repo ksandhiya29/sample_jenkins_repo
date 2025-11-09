@@ -11,6 +11,12 @@ pipeline {
 			     sh 'sudo apt install apache2 -y'
 		       }
 		}
+		stage('Confirmation')
+		{
+			steps{
+				input cancel: 'NO', id: 'Inputstep', message: 'Do you want to proceed with the changes?', ok: 'yes'
+			}
+		}
 		stage('Deploy Code') {
 		       steps {
 			     sh 'sudo cp * /var/www/html/'
