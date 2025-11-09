@@ -11,11 +11,13 @@ pipeline {
 			     sh 'sudo apt install apache2 -y'
 		       }
 		}
-		stage('Confirmation')
-		{
+		stage('Confirmation') {
 			steps{
-				input cancel: 'NO', id: 'Inputstep', message: 'Do you want to proceed with the changes?', ok: 'yes'
-			}
+				script {
+                    input message: 'Do you want to proceed with the deployment?', ok: 'Yes, Deploy!'
+                    echo 'Deployment approved. Proceeding...'
+                }
+		}
 		}
 		stage('Deploy Code') {
 		       steps {
